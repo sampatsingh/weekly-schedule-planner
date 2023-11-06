@@ -32,6 +32,19 @@ db.once("open", () => {
 
 app.use(bodyParser.json());
 
+// Create an appointment
+app.post("/appointments", async (req, res) => {
+  try {
+    const { title, date, description } = req.body;
+    const newAppointment = new Appointment({ title, date, description });
+    const savedAppointment = await newAppointment.save();
+    res.status(201).json(savedAppointment);
+  } catch (error) {
+    console.error("Error creating appointment:", error);
+    res.status(500).json({ error: "Failed to create appointment" });
+  }
+});
+
 // Serve a production-ready frontend (you can implement this part)
 
 app.listen(port, () => {
