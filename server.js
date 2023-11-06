@@ -49,7 +49,9 @@ app.post("/appointments", async (req, res) => {
 app.delete("/appointments/:id", async (req, res) => {
   try {
     const appointmentId = req.params.id;
-    const deletedAppointment = await Appointment.findByIdAndRemove(appointmentId);
+    const deletedAppointment = await Appointment.findByIdAndRemove(
+      appointmentId
+    );
     if (!deletedAppointment) {
       return res.status(404).json({ error: "Appointment not found" });
     }
@@ -79,3 +81,5 @@ app.get("/appointments", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app;
