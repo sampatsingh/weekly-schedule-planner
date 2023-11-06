@@ -60,6 +60,20 @@ app.delete("/appointments/:id", async (req, res) => {
   }
 });
 
+// Retrieve all upcoming appointments
+app.get("/appointments", async (req, res) => {
+  try {
+    const currentDate = new Date();
+    const upcomingAppointments = await Appointment.find({
+      date: { $gte: currentDate },
+    });
+    res.json(upcomingAppointments);
+  } catch (error) {
+    console.error("Error retrieving appointments:", error);
+    res.status(500).json({ error: "Failed to retrieve appointments" });
+  }
+});
+
 // Serve a production-ready frontend (you can implement this part)
 
 app.listen(port, () => {
