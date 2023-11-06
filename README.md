@@ -12,7 +12,6 @@ Welcome to the Weekly Schedule Planner, a sophisticated web application designed
 - [Installation and Setup](#installation-and-setup)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Acknowledgments](#acknowledgments)
 
 ## Functionality
 

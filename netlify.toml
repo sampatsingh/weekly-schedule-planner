@@ -1,0 +1,10 @@
+[build]
+functions = "functions"  # The directory containing your serverless functions
+command = "npm run build"  # Build command if your project requires one
+publish = "public"  # Directory to publish if it's a static site
+
+[dev]
+autoLaunch = false  # Set to true if you want to use Netlify Dev
+
+[settings]
+target = "node20"  # Set to the Node.js version you're using
