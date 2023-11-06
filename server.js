@@ -13,9 +13,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware for enhanced security, logging, and compression
-app.use(helmet());
-app.use(compression());
-app.use(morgan("combined"));
+app.use(helmet()); // Enhances security by setting HTTP headers
+app.use(compression()); // Compresses responses to reduce bandwidth
+app.use(morgan("combined")); // Logs HTTP requests
 
 // Connect to the MongoDB database using the MONGODB_URI from .env
 mongoose.connect(process.env.MONGODB_URI, {
