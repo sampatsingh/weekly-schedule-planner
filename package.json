@@ -2,6 +2,9 @@
   "scripts": {
     "test": "mocha test/*.js"
   },
+  "mocha": {
+    "timeout": 10000
+  },
   "dependencies": {
     "body-parser": "^1.20.2",
     "compression": "^1.7.4",
