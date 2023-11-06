@@ -45,6 +45,21 @@ app.post("/appointments", async (req, res) => {
   }
 });
 
+// Delete an appointment
+app.delete("/appointments/:id", async (req, res) => {
+  try {
+    const appointmentId = req.params.id;
+    const deletedAppointment = await Appointment.findByIdAndRemove(appointmentId);
+    if (!deletedAppointment) {
+      return res.status(404).json({ error: "Appointment not found" });
+    }
+    res.json({ message: "Appointment deleted" });
+  } catch (error) {
+    console.error("Error deleting appointment:", error);
+    res.status(500).json({ error: "Failed to delete appointment" });
+  }
+});
+
 // Serve a production-ready frontend (you can implement this part)
 
 app.listen(port, () => {
